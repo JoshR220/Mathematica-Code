@@ -1,0 +1,823 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     34598,        815]
+NotebookOptionsPosition[     33434,        786]
+NotebookOutlinePosition[     33835,        802]
+CellTagsIndexPosition[     33792,        799]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ "EGGS - Barium Effective Hamiltonian (Results)\n",
+ StyleBox["Last Updated: 09/02/2022",
+  FontSize->18]
+}], "Title",
+ CellChangeTimes->{{3.821765122432127*^9, 3.821765149585948*^9}, {
+   3.8217651908990583`*^9, 3.8217651958970127`*^9}, {3.821766227203559*^9, 
+   3.82176623345024*^9}, {3.821766500334243*^9, 3.821766527841268*^9}, {
+   3.821767061869708*^9, 3.821767072980789*^9}, 3.822650503673561*^9, {
+   3.8231811353415623`*^9, 3.82318113572502*^9}, {3.824209777462283*^9, 
+   3.82420977963853*^9}, {3.824209813388908*^9, 3.8242098156787443`*^9}, {
+   3.82485822551722*^9, 3.824858225922379*^9}, {3.824859590507799*^9, 
+   3.824859596393354*^9}, {3.825090857499608*^9, 3.825090861240073*^9}, {
+   3.825124869712194*^9, 3.825124869956789*^9}, {3.825129920165805*^9, 
+   3.825129930225037*^9}, {3.825479761166642*^9, 3.8254797618345823`*^9}, {
+   3.825479816080453*^9, 3.825479818885976*^9}, {3.8259812706462107`*^9, 
+   3.825981274583115*^9}, {3.82599697039507*^9, 3.8259969714052*^9}, {
+   3.8260019490771627`*^9, 3.8260019491964006`*^9}, {3.826142831326441*^9, 
+   3.826142834555397*^9}, {3.826308836578621*^9, 3.826308838318795*^9}, {
+   3.826318350822259*^9, 3.826318362070549*^9}, {3.826660096115065*^9, 
+   3.8266600982918653`*^9}, {3.826670945754136*^9, 3.8266709494894342`*^9}, {
+   3.826713400879233*^9, 3.826713414261959*^9}, {3.826717146323718*^9, 
+   3.8267171467082157`*^9}, {3.8267482766752443`*^9, 3.826748277191227*^9}, {
+   3.826915690561915*^9, 3.8269156949274673`*^9}, {3.827217692931571*^9, 
+   3.8272176933616467`*^9}, {3.827272792182235*^9, 3.827272792577071*^9}, {
+   3.827522026005802*^9, 3.8275220279512177`*^9}, {3.828026127453289*^9, 
+   3.828026127906008*^9}, {3.828131236453155*^9, 3.828131236620693*^9}, {
+   3.828144594298668*^9, 3.828144594498057*^9}, {3.8284051980355787`*^9, 
+   3.8284051994917593`*^9}, {3.8287028843517323`*^9, 3.828702884973297*^9}, {
+   3.8288096472127*^9, 3.828809647923052*^9}, {3.829016100916066*^9, 
+   3.829016101883637*^9}, {3.829658013678947*^9, 3.82965801405405*^9}, {
+   3.829685626009622*^9, 3.829685626222748*^9}, {3.829703267794697*^9, 
+   3.8297032688314247`*^9}, {3.8302697753869658`*^9, 3.830269775592958*^9}, {
+   3.83031815348379*^9, 3.8303181537152576`*^9}, {3.8309117167659903`*^9, 
+   3.830911717542213*^9}, {3.830916823830628*^9, 3.8309168308512297`*^9}, 
+   3.830926119299738*^9, {3.832039660794702*^9, 3.832039665767874*^9}, {
+   3.832349621636397*^9, 3.832349621989242*^9}, {3.832758511507678*^9, 
+   3.832758511656344*^9}, {3.83328713519081*^9, 3.833287135699217*^9}, {
+   3.833331278440898*^9, 3.833331278545971*^9}, {3.833830994602521*^9, 
+   3.8338309949128523`*^9}, {3.834315543833439*^9, 3.834315546703806*^9}, {
+   3.834537553019836*^9, 3.834537553250141*^9}, {3.835404066807501*^9, 
+   3.8354040708259497`*^9}, {3.836312003936235*^9, 3.836312004999596*^9}, {
+   3.8401838217492647`*^9, 3.840183823700932*^9}, {3.841188673145463*^9, 
+   3.841188673858202*^9}, {3.841745294775985*^9, 3.841745297293244*^9}, {
+   3.841849921171928*^9, 3.841849921400724*^9}, {3.841876807221068*^9, 
+   3.841876810456781*^9}, {3.848961845282098*^9, 3.848961851314061*^9}, {
+   3.850941341058495*^9, 3.850941342897187*^9}, {3.8521294934888268`*^9, 
+   3.852129495609085*^9}, {3.852213889564988*^9, 3.852213889724209*^9}, {
+   3.8526934850606937`*^9, 3.852693490254773*^9}, {3.852753322949367*^9, 
+   3.852753323387171*^9}, {3.8532180825411663`*^9, 3.853218082860571*^9}, {
+   3.853268089862934*^9, 3.8532681119024267`*^9}, {3.870220535496231*^9, 
+   3.870220539073941*^9}, {3.870237736154842*^9, 3.8702377390437813`*^9}, {
+   3.870315967551916*^9, 3.870315967647744*^9}, {3.870753272879767*^9, 
+   3.8707532743829813`*^9}, {3.870829179121869*^9, 3.8708291793708467`*^9}, {
+   3.8710899899019213`*^9, 3.871089991071011*^9}, {3.871090026993948*^9, 
+   3.8710900292323647`*^9}},ExpressionUUID->"2014527c-294b-4dd5-8253-\
+bfc425f2833e"],
+
+Cell[CellGroupData[{
+
+Cell["Old Data", "Chapter",
+ CellChangeTimes->{{3.870222110699956*^9, 3.870222141502368*^9}, {
+  3.870769686653805*^9, 
+  3.87076968830201*^9}},ExpressionUUID->"2489e3c7-18fd-4711-beae-\
+b0749b936291"],
+
+Cell[CellGroupData[{
+
+Cell["08/30/2022", "Section",
+ CellChangeTimes->{{3.870913946949107*^9, 
+  3.870913951646933*^9}},ExpressionUUID->"6b1cd159-0829-4b32-864f-\
+a56c233aa210"],
+
+Cell[BoxData[
+ TemplateBox[{
+   TagBox[
+    TagBox[
+     GridBox[{{
+        TagBox["\"Stark Shift (x2\[Pi] kHz)\"", HoldForm], 
+        TagBox["\"Eigenbasis\"", HoldForm]}, {
+        RowBox[{"-", "10.457785012833194`"}], 
+        TagBox[
+         TagBox[
+          GridBox[{{
+             TagBox["\"Fine\"", HoldForm], 
+             TagBox["\"Hyperfine\"", HoldForm], 
+             TagBox["\"Coefficient\"", HoldForm]}, {
+             SubscriptBox["\"D\"", 
+              FractionBox["3", "2"]], 
+             
+             TemplateBox[{
+              "\"F=1, \\!\\(\\*SubscriptBox[\\(M\\), \\(F\\)]\\)=-1\""}, 
+              "Ket"], 
+             RowBox[{"-", "0.0025866351673027397`"}]}, {
+             SubscriptBox["\"D\"", 
+              FractionBox["3", "2"]], 
+             
+             TemplateBox[{
+              "\"F=2, \\!\\(\\*SubscriptBox[\\(M\\), \\(F\\)]\\)=-1\""}, 
+              "Ket"], "0.99999665465366`"}}, RowSpacings -> 1, ColumnSpacings -> 
+           3, RowAlignments -> Baseline, ColumnAlignments -> Left, 
+           GridBoxDividers -> {
+            "Columns" -> {{False}}, "Rows" -> {False, True, {False}, False}}, 
+           ColumnAlignments -> Left], {None, OutputFormsDump`HeadedColumns}], 
+         
+         Function[BoxForm`e$, 
+          TableForm[
+          BoxForm`e$, 
+           TableHeadings -> {
+            None, {"Fine", "Hyperfine", "Coefficient"}}]]]}, {
+       "10.457272362249338`", 
+        TagBox[
+         TagBox[
+          GridBox[{{
+             TagBox["\"Fine\"", HoldForm], 
+             TagBox["\"Hyperfine\"", HoldForm], 
+             TagBox["\"Coefficient\"", HoldForm]}, {
+             SubscriptBox["\"P\"", 
+              FractionBox["3", "2"]], 
+             
+             TemplateBox[{
+              "\"F=1, \\!\\(\\*SubscriptBox[\\(M\\), \\(F\\)]\\)=0\""}, 
+              "Ket"], 
+             RowBox[{"-", "0.9999721436639863`"}]}, {
+             SubscriptBox["\"P\"", 
+              FractionBox["3", "2"]], 
+             
+             TemplateBox[{
+              "\"F=2, \\!\\(\\*SubscriptBox[\\(M\\), \\(F\\)]\\)=0\""}, 
+              "Ket"], 
+             RowBox[{"-", "0.0074640401962962665`"}]}}, RowSpacings -> 1, 
+           ColumnSpacings -> 3, RowAlignments -> Baseline, ColumnAlignments -> 
+           Left, GridBoxDividers -> {
+            "Columns" -> {{False}}, "Rows" -> {False, True, {False}, False}}, 
+           ColumnAlignments -> Left], {None, OutputFormsDump`HeadedColumns}], 
+         
+         Function[BoxForm`e$, 
+          TableForm[
+          BoxForm`e$, 
+           TableHeadings -> {
+            None, {"Fine", "Hyperfine", "Coefficient"}}]]]}, {
+       "0.0005826194057230018`", 
+        TagBox[
+         TagBox[
+          GridBox[{{
+             TagBox["\"Fine\"", HoldForm], 
+             TagBox["\"Hyperfine\"", HoldForm], 
+             TagBox["\"Coefficient\"", HoldForm]}, {
+             SubscriptBox["\"P\"", 
+              FractionBox["3", "2"]], 
+             
+             TemplateBox[{
+              "\"F=1, \\!\\(\\*SubscriptBox[\\(M\\), \\(F\\)]\\)=0\""}, 
+              "Ket"], 
+             RowBox[{"-", "0.00746404019629636`"}]}, {
+             SubscriptBox["\"P\"", 
+              FractionBox["3", "2"]], 
+             
+             TemplateBox[{
+              "\"F=2, \\!\\(\\*SubscriptBox[\\(M\\), \\(F\\)]\\)=0\""}, 
+              "Ket"], "0.9999721436639861`"}}, RowSpacings -> 1, 
+           ColumnSpacings -> 3, RowAlignments -> Baseline, ColumnAlignments -> 
+           Left, GridBoxDividers -> {
+            "Columns" -> {{False}}, "Rows" -> {False, True, {False}, False}}, 
+           ColumnAlignments -> Left], {None, OutputFormsDump`HeadedColumns}], 
+         
+         Function[BoxForm`e$, 
+          TableForm[
+          BoxForm`e$, 
+           TableHeadings -> {None, {"Fine", "Hyperfine", "Coefficient"}}]]]}, {
+        RowBox[{"-", "0.00006996882187088396`"}], 
+        TagBox[
+         TagBox[
+          GridBox[{{
+             TagBox["\"Fine\"", HoldForm], 
+             TagBox["\"Hyperfine\"", HoldForm], 
+             TagBox["\"Coefficient\"", HoldForm]}, {
+             SubscriptBox["\"D\"", 
+              FractionBox["3", "2"]], 
+             
+             TemplateBox[{
+              "\"F=1, \\!\\(\\*SubscriptBox[\\(M\\), \\(F\\)]\\)=-1\""}, 
+              "Ket"], 
+             RowBox[{"-", "0.9999966546536599`"}]}, {
+             SubscriptBox["\"D\"", 
+              FractionBox["3", "2"]], 
+             TemplateBox[{
+              "\"F=2, \\!\\(\\*SubscriptBox[\\(M\\), \\(F\\)]\\)=-1\""}, 
+              "Ket"], 
+             RowBox[{"-", "0.0025866351673027393`"}]}}, RowSpacings -> 1, 
+           ColumnSpacings -> 3, RowAlignments -> Baseline, ColumnAlignments -> 
+           Left, GridBoxDividers -> {
+            "Columns" -> {{False}}, "Rows" -> {False, True, {False}, False}}, 
+           ColumnAlignments -> Left], {None, OutputFormsDump`HeadedColumns}], 
+         
+         Function[BoxForm`e$, 
+          TableForm[
+          BoxForm`e$, 
+           TableHeadings -> {None, {"Fine", "Hyperfine", "Coefficient"}}]]]}},
+       RowSpacings -> 1, ColumnSpacings -> 3, RowAlignments -> Center, 
+      ColumnAlignments -> Center, 
+      GridBoxDividers -> {
+       "Columns" -> {{False}}, "Rows" -> {False, True, {False}, False}}, 
+      ColumnAlignments -> Left], {None, OutputFormsDump`HeadedColumns}], 
+    Function[BoxForm`e$, 
+     TableForm[
+     BoxForm`e$, 
+      TableHeadings -> {None, {"Stark Shift (x2\[Pi] kHz)", "Eigenbasis"}}, 
+      TableAlignments -> Center]]], "\"Laser Wavelengths (nm): 532.\""},
+  "Labeled",
+  DisplayFunction->(GridBox[{{
+      ItemBox[#2, DefaultBaseStyle -> "LabeledLabel"]}, {
+      TagBox[
+       ItemBox[
+        FrameBox[
+         PaneBox[
+          TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
+          BaselinePosition -> Baseline], FrameMargins -> 4, FrameStyle -> 
+         Automatic], DefaultBaseStyle -> "Labeled"], "SkipImageSizeLevel"]}}, 
+    GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
+    AutoDelete -> False, 
+    GridBoxItemSize -> {"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+    BaselinePosition -> {2, 1}]& ),
+  InterpretationFunction->(RowBox[{"Labeled", "[", 
+     RowBox[{#, ",", #2, ",", "Top", ",", 
+       RowBox[{"{", 
+         RowBox[{"Frame", "\[Rule]", "True"}], "}"}]}], "]"}]& )]], "Output",
+ CellChangeTimes->{3.870913293130494*^9},
+ CellLabel->
+  "Out[157]=",ExpressionUUID->"a0301e97-68a4-47f7-9f74-9042f78a8992"],
+
+Cell[BoxData[
+ TemplateBox[{
+   TagBox[
+    TagBox[
+     GridBox[{{
+        TagBox["\"Stark Shift (x2\[Pi] kHz)\"", HoldForm], 
+        TagBox["\"Eigenbasis\"", HoldForm]}, {"4.4983941940904356`*^14", 
+        TagBox[
+         TagBox[
+          GridBox[{{
+             TagBox["\"Fine\"", HoldForm], 
+             TagBox["\"Hyperfine\"", HoldForm], 
+             TagBox["\"Coefficient\"", HoldForm]}, {
+             SubscriptBox["\"D\"", 
+              FractionBox["3", "2"]], 
+             
+             TemplateBox[{
+              "\"F=1, \\!\\(\\*SubscriptBox[\\(M\\), \\(F\\)]\\)=-1\""}, 
+              "Ket"], "0.002586635167302664`"}, {
+             SubscriptBox["\"D\"", 
+              FractionBox["3", "2"]], 
+             
+             TemplateBox[{
+              "\"F=2, \\!\\(\\*SubscriptBox[\\(M\\), \\(F\\)]\\)=-1\""}, 
+              "Ket"], "0.9999966546536599`"}}, RowSpacings -> 1, 
+           ColumnSpacings -> 3, RowAlignments -> Baseline, ColumnAlignments -> 
+           Left, GridBoxDividers -> {
+            "Columns" -> {{False}}, "Rows" -> {False, True, {False}, False}}, 
+           ColumnAlignments -> Left], {None, OutputFormsDump`HeadedColumns}], 
+         
+         Function[BoxForm`e$, 
+          TableForm[
+          BoxForm`e$, 
+           TableHeadings -> {
+            None, {"Fine", "Hyperfine", "Coefficient"}}]]]}, {
+       "4.498173678521684`*^14", 
+        TagBox[
+         TagBox[
+          GridBox[{{
+             TagBox["\"Fine\"", HoldForm], 
+             TagBox["\"Hyperfine\"", HoldForm], 
+             TagBox["\"Coefficient\"", HoldForm]}, {
+             SubscriptBox["\"P\"", 
+              FractionBox["3", "2"]], 
+             
+             TemplateBox[{
+              "\"F=1, \\!\\(\\*SubscriptBox[\\(M\\), \\(F\\)]\\)=0\""}, 
+              "Ket"], 
+             RowBox[{"-", "0.9999721436639863`"}]}, {
+             SubscriptBox["\"P\"", 
+              FractionBox["3", "2"]], 
+             
+             TemplateBox[{
+              "\"F=2, \\!\\(\\*SubscriptBox[\\(M\\), \\(F\\)]\\)=0\""}, 
+              "Ket"], 
+             RowBox[{"-", "0.007464040196296224`"}]}}, RowSpacings -> 1, 
+           ColumnSpacings -> 3, RowAlignments -> Baseline, ColumnAlignments -> 
+           Left, GridBoxDividers -> {
+            "Columns" -> {{False}}, "Rows" -> {False, True, {False}, False}}, 
+           ColumnAlignments -> Left], {None, OutputFormsDump`HeadedColumns}], 
+         
+         Function[BoxForm`e$, 
+          TableForm[
+          BoxForm`e$, 
+           TableHeadings -> {
+            None, {"Fine", "Hyperfine", "Coefficient"}}]]]}, {
+       "2.506125100913101`*^10", 
+        TagBox[
+         TagBox[
+          GridBox[{{
+             TagBox["\"Fine\"", HoldForm], 
+             TagBox["\"Hyperfine\"", HoldForm], 
+             TagBox["\"Coefficient\"", HoldForm]}, {
+             SubscriptBox["\"P\"", 
+              FractionBox["3", "2"]], 
+             
+             TemplateBox[{
+              "\"F=1, \\!\\(\\*SubscriptBox[\\(M\\), \\(F\\)]\\)=0\""}, 
+              "Ket"], 
+             RowBox[{"-", "0.0074640401962962205`"}]}, {
+             SubscriptBox["\"P\"", 
+              FractionBox["3", "2"]], 
+             
+             TemplateBox[{
+              "\"F=2, \\!\\(\\*SubscriptBox[\\(M\\), \\(F\\)]\\)=0\""}, 
+              "Ket"], "0.9999721436639863`"}}, RowSpacings -> 1, 
+           ColumnSpacings -> 3, RowAlignments -> Baseline, ColumnAlignments -> 
+           Left, GridBoxDividers -> {
+            "Columns" -> {{False}}, "Rows" -> {False, True, {False}, False}}, 
+           ColumnAlignments -> Left], {None, OutputFormsDump`HeadedColumns}], 
+         
+         Function[BoxForm`e$, 
+          TableForm[
+          BoxForm`e$, 
+           TableHeadings -> {
+            None, {"Fine", "Hyperfine", "Coefficient"}}]]]}, {
+       "3.0096941339128795`*^9", 
+        TagBox[
+         TagBox[
+          GridBox[{{
+             TagBox["\"Fine\"", HoldForm], 
+             TagBox["\"Hyperfine\"", HoldForm], 
+             TagBox["\"Coefficient\"", HoldForm]}, {
+             SubscriptBox["\"D\"", 
+              FractionBox["3", "2"]], 
+             
+             TemplateBox[{
+              "\"F=1, \\!\\(\\*SubscriptBox[\\(M\\), \\(F\\)]\\)=-1\""}, 
+              "Ket"], "0.99999665465366`"}, {
+             SubscriptBox["\"D\"", 
+              FractionBox["3", "2"]], 
+             
+             TemplateBox[{
+              "\"F=2, \\!\\(\\*SubscriptBox[\\(M\\), \\(F\\)]\\)=-1\""}, 
+              "Ket"], 
+             RowBox[{"-", "0.0025866351673027414`"}]}}, RowSpacings -> 1, 
+           ColumnSpacings -> 3, RowAlignments -> Baseline, ColumnAlignments -> 
+           Left, GridBoxDividers -> {
+            "Columns" -> {{False}}, "Rows" -> {False, True, {False}, False}}, 
+           ColumnAlignments -> Left], {None, OutputFormsDump`HeadedColumns}], 
+         
+         Function[BoxForm`e$, 
+          TableForm[
+          BoxForm`e$, 
+           TableHeadings -> {None, {"Fine", "Hyperfine", "Coefficient"}}]]]}},
+       RowSpacings -> 1, ColumnSpacings -> 3, RowAlignments -> Center, 
+      ColumnAlignments -> Center, 
+      GridBoxDividers -> {
+       "Columns" -> {{False}}, "Rows" -> {False, True, {False}, False}}, 
+      ColumnAlignments -> Left], {None, OutputFormsDump`HeadedColumns}], 
+    Function[BoxForm`e$, 
+     TableForm[
+     BoxForm`e$, 
+      TableHeadings -> {None, {"Stark Shift (x2\[Pi] kHz)", "Eigenbasis"}}, 
+      TableAlignments -> Center]]], "\"Laser Wavelengths (nm): 532.\""},
+  "Labeled",
+  DisplayFunction->(GridBox[{{
+      ItemBox[#2, DefaultBaseStyle -> "LabeledLabel"]}, {
+      TagBox[
+       ItemBox[
+        FrameBox[
+         PaneBox[
+          TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
+          BaselinePosition -> Baseline], FrameMargins -> 4, FrameStyle -> 
+         Automatic], DefaultBaseStyle -> "Labeled"], "SkipImageSizeLevel"]}}, 
+    GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
+    AutoDelete -> False, 
+    GridBoxItemSize -> {"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+    BaselinePosition -> {2, 1}]& ),
+  InterpretationFunction->(RowBox[{"Labeled", "[", 
+     RowBox[{#, ",", #2, ",", "Top", ",", 
+       RowBox[{"{", 
+         RowBox[{"Frame", "\[Rule]", "True"}], "}"}]}], "]"}]& )]], "Output",
+ CellChangeTimes->{3.87076948494156*^9, 3.8707696975088577`*^9, 
+  3.870769819696218*^9, 3.870769852267713*^9, 3.870815101526033*^9, 
+  3.870885322526684*^9, 3.870886412746747*^9, 3.87088677798195*^9, 
+  3.87088682956861*^9, 3.870887471332261*^9, 3.8708884984300613`*^9, 
+  3.8708890041900587`*^9, 3.8708891002305927`*^9, 3.8708897456642847`*^9, 
+  3.870889791601048*^9, 3.8708898811496162`*^9, 3.870889967840578*^9, 
+  3.870890174471644*^9},
+ CellLabel->
+  "Out[751]=",ExpressionUUID->"b30419a1-e85b-44b5-94f5-b5947f1e6d04"],
+
+Cell[BoxData[
+ TemplateBox[{
+   TagBox[
+    TagBox[
+     GridBox[{{
+        TagBox["\"Stark Shift (x2\[Pi] kHz)\"", HoldForm], 
+        TagBox["\"Eigenbasis\"", HoldForm]}, {
+        RowBox[{"-", "4.498423900776086`*^14"}], 
+        TagBox[
+         TagBox[
+          GridBox[{{
+             TagBox["\"Fine\"", HoldForm], 
+             TagBox["\"Hyperfine\"", HoldForm], 
+             TagBox["\"Coefficient\"", HoldForm]}, {
+             SubscriptBox["\"D\"", 
+              FractionBox["3", "2"]], 
+             
+             TemplateBox[{
+              "\"F=2, \\!\\(\\*SubscriptBox[\\(M\\), \\(F\\)]\\)=-1\""}, 
+              "Ket"], "1.`"}}, RowSpacings -> 1, ColumnSpacings -> 3, 
+           RowAlignments -> Baseline, ColumnAlignments -> Left, 
+           GridBoxDividers -> {
+            "Columns" -> {{False}}, "Rows" -> {False, True, {False}, False}}, 
+           ColumnAlignments -> Left], {None, OutputFormsDump`HeadedColumns}], 
+         
+         Function[BoxForm`e$, 
+          TableForm[
+          BoxForm`e$, 
+           TableHeadings -> {
+            None, {"Fine", "Hyperfine", "Coefficient"}}]]]}, {
+       "4.498423900776086`*^14", 
+        TagBox[
+         TagBox[
+          GridBox[{{
+             TagBox["\"Fine\"", HoldForm], 
+             TagBox["\"Hyperfine\"", HoldForm], 
+             TagBox["\"Coefficient\"", HoldForm]}, {
+             SubscriptBox["\"P\"", 
+              FractionBox["3", "2"]], 
+             
+             TemplateBox[{
+              "\"F=1, \\!\\(\\*SubscriptBox[\\(M\\), \\(F\\)]\\)=0\""}, 
+              "Ket"], "1.`"}}, RowSpacings -> 1, ColumnSpacings -> 3, 
+           RowAlignments -> Baseline, ColumnAlignments -> Left, 
+           GridBoxDividers -> {
+            "Columns" -> {{False}}, "Rows" -> {False, True, {False}, False}}, 
+           ColumnAlignments -> Left], {None, OutputFormsDump`HeadedColumns}], 
+         
+         Function[BoxForm`e$, 
+          TableForm[
+          BoxForm`e$, 
+           TableHeadings -> {None, {"Fine", "Hyperfine", "Coefficient"}}]]]}},
+       RowSpacings -> 1, ColumnSpacings -> 3, RowAlignments -> Center, 
+      ColumnAlignments -> Center, 
+      GridBoxDividers -> {
+       "Columns" -> {{False}}, "Rows" -> {False, True, {False}, False}}, 
+      ColumnAlignments -> Left], {None, OutputFormsDump`HeadedColumns}], 
+    Function[BoxForm`e$, 
+     TableForm[
+     BoxForm`e$, 
+      TableHeadings -> {None, {"Stark Shift (x2\[Pi] kHz)", "Eigenbasis"}}, 
+      TableAlignments -> Center]]], "\"Laser Wavelengths (nm): 532.\""},
+  "Labeled",
+  DisplayFunction->(GridBox[{{
+      ItemBox[#2, DefaultBaseStyle -> "LabeledLabel"]}, {
+      TagBox[
+       ItemBox[
+        FrameBox[
+         PaneBox[
+          TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
+          BaselinePosition -> Baseline], FrameMargins -> 4, FrameStyle -> 
+         Automatic], DefaultBaseStyle -> "Labeled"], "SkipImageSizeLevel"]}}, 
+    GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
+    AutoDelete -> False, 
+    GridBoxItemSize -> {"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+    BaselinePosition -> {2, 1}]& ),
+  InterpretationFunction->(RowBox[{"Labeled", "[", 
+     RowBox[{#, ",", #2, ",", "Top", ",", 
+       RowBox[{"{", 
+         RowBox[{"Frame", "\[Rule]", "True"}], "}"}]}], "]"}]& )]], "Output",
+ CellChangeTimes->{3.87076948494156*^9, 3.8707696975088577`*^9, 
+  3.870769819696218*^9, 3.870769852267713*^9, 3.870815101526033*^9, 
+  3.870885322526684*^9, 3.870886412746747*^9, 3.87088677798195*^9, 
+  3.87088682956861*^9, 3.870887471332261*^9, 3.8708884984300613`*^9},
+ CellLabel->
+  "Out[460]=",ExpressionUUID->"a98cf5a5-f5ac-4e20-9943-6c14432aaef4"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Oldest", "Section",
+ CellChangeTimes->{{3.8709139411253843`*^9, 
+  3.870913941738161*^9}},ExpressionUUID->"d051b1d2-f6af-4b3f-b0cb-\
+e00f49115b71"],
+
+Cell[BoxData[
+ TemplateBox[{
+   TagBox[
+    TagBox[
+     GridBox[{{
+        TagBox["\"Stark Shift (x2\[Pi] kHz)\"", HoldForm], 
+        TagBox["\"Eigenbasis\"", HoldForm]}, {"176.19979095298186`", 
+        TagBox[
+         TagBox[
+          GridBox[{{
+             TagBox["\"Fine\"", HoldForm], 
+             TagBox["\"Hyperfine\"", HoldForm], 
+             TagBox["\"Coefficient\"", HoldForm]}, {
+             SubscriptBox["\"P\"", 
+              FractionBox["1", "2"]], 
+             
+             TemplateBox[{
+              "\"F=0, \\!\\(\\*SubscriptBox[\\(M\\), \\(F\\)]\\)=0\""}, 
+              "Ket"], "0.8242348090841747`"}, {
+             SubscriptBox["\"P\"", 
+              FractionBox["3", "2"]], 
+             
+             TemplateBox[{
+              "\"F=2, \\!\\(\\*SubscriptBox[\\(M\\), \\(F\\)]\\)=0\""}, 
+              "Ket"], 
+             RowBox[{"-", "0.13999166387839804`"}]}, {
+             SubscriptBox["\"P\"", 
+              FractionBox["3", "2"]], 
+             
+             TemplateBox[{
+              "\"F=2, \\!\\(\\*SubscriptBox[\\(M\\), \\(F\\)]\\)=2\""}, 
+              "Ket"], 
+             RowBox[{"-", "0.5486704963259204`"}]}}, RowSpacings -> 1, 
+           ColumnSpacings -> 3, RowAlignments -> Baseline, ColumnAlignments -> 
+           Left, GridBoxDividers -> {
+            "Columns" -> {{False}}, "Rows" -> {False, True, {False}, False}}, 
+           ColumnAlignments -> Left], {None, OutputFormsDump`HeadedColumns}], 
+         
+         Function[BoxForm`e$, 
+          TableForm[
+          BoxForm`e$, 
+           TableHeadings -> {None, {"Fine", "Hyperfine", "Coefficient"}}]]]}, {
+        RowBox[{"-", "176.1996845977454`"}], 
+        TagBox[
+         TagBox[
+          GridBox[{{
+             TagBox["\"Fine\"", HoldForm], 
+             TagBox["\"Hyperfine\"", HoldForm], 
+             TagBox["\"Coefficient\"", HoldForm]}, {
+             SubscriptBox["\"S\"", 
+              FractionBox["1", "2"]], 
+             
+             TemplateBox[{
+              "\"F=1, \\!\\(\\*SubscriptBox[\\(M\\), \\(F\\)]\\)=-1\""}, 
+              "Ket"], "0.5299869512089371`"}, {
+             SubscriptBox["\"S\"", 
+              FractionBox["1", "2"]], 
+             
+             TemplateBox[{
+              "\"F=1, \\!\\(\\*SubscriptBox[\\(M\\), \\(F\\)]\\)=1\""}, 
+              "Ket"], "0.8480057968836391`"}}, RowSpacings -> 1, 
+           ColumnSpacings -> 3, RowAlignments -> Baseline, ColumnAlignments -> 
+           Left, GridBoxDividers -> {
+            "Columns" -> {{False}}, "Rows" -> {False, True, {False}, False}}, 
+           ColumnAlignments -> Left], {None, OutputFormsDump`HeadedColumns}], 
+         
+         Function[BoxForm`e$, 
+          TableForm[
+          BoxForm`e$, 
+           TableHeadings -> {None, {"Fine", "Hyperfine", "Coefficient"}}]]]}, {
+        RowBox[{"-", "36.880910478397105`"}], 
+        TagBox[
+         TagBox[
+          GridBox[{{
+             TagBox["\"Fine\"", HoldForm], 
+             TagBox["\"Hyperfine\"", HoldForm], 
+             TagBox["\"Coefficient\"", HoldForm]}, {
+             SubscriptBox["\"S\"", 
+              FractionBox["1", "2"]], 
+             
+             TemplateBox[{
+              "\"F=1, \\!\\(\\*SubscriptBox[\\(M\\), \\(F\\)]\\)=0\""}, 
+              "Ket"], "0.9999999999999999`"}}, RowSpacings -> 1, 
+           ColumnSpacings -> 3, RowAlignments -> Baseline, ColumnAlignments -> 
+           Left, GridBoxDividers -> {
+            "Columns" -> {{False}}, "Rows" -> {False, True, {False}, False}}, 
+           ColumnAlignments -> Left], {None, OutputFormsDump`HeadedColumns}], 
+         
+         Function[BoxForm`e$, 
+          TableForm[
+          BoxForm`e$, 
+           TableHeadings -> {
+            None, {"Fine", "Hyperfine", "Coefficient"}}]]]}, {
+       "36.88084600686115`", 
+        TagBox[
+         TagBox[
+          GridBox[{{
+             TagBox["\"Fine\"", HoldForm], 
+             TagBox["\"Hyperfine\"", HoldForm], 
+             TagBox["\"Coefficient\"", HoldForm]}, {
+             SubscriptBox["\"P\"", 
+              FractionBox["3", "2"]], 
+             
+             TemplateBox[{
+              "\"F=2, \\!\\(\\*SubscriptBox[\\(M\\), \\(F\\)]\\)=1\""}, 
+              "Ket"], 
+             RowBox[{"-", "0.9999999999999998`"}]}}, RowSpacings -> 1, 
+           ColumnSpacings -> 3, RowAlignments -> Baseline, ColumnAlignments -> 
+           Left, GridBoxDividers -> {
+            "Columns" -> {{False}}, "Rows" -> {False, True, {False}, False}}, 
+           ColumnAlignments -> Left], {None, OutputFormsDump`HeadedColumns}], 
+         
+         Function[BoxForm`e$, 
+          TableForm[
+          BoxForm`e$, 
+           TableHeadings -> {None, {"Fine", "Hyperfine", "Coefficient"}}]]]}, {
+        RowBox[{"-", "35.934890996536225`"}], 
+        TagBox[
+         TagBox[
+          GridBox[{{
+             TagBox["\"Fine\"", HoldForm], 
+             TagBox["\"Hyperfine\"", HoldForm], 
+             TagBox["\"Coefficient\"", HoldForm]}, {
+             SubscriptBox["\"S\"", 
+              FractionBox["1", "2"]], 
+             
+             TemplateBox[{
+              "\"F=1, \\!\\(\\*SubscriptBox[\\(M\\), \\(F\\)]\\)=-1\""}, 
+              "Ket"], "0.848005796883639`"}, {
+             SubscriptBox["\"S\"", 
+              FractionBox["1", "2"]], 
+             
+             TemplateBox[{
+              "\"F=1, \\!\\(\\*SubscriptBox[\\(M\\), \\(F\\)]\\)=1\""}, 
+              "Ket"], 
+             RowBox[{"-", "0.5299869512089371`"}]}}, RowSpacings -> 1, 
+           ColumnSpacings -> 3, RowAlignments -> Baseline, ColumnAlignments -> 
+           Left, GridBoxDividers -> {
+            "Columns" -> {{False}}, "Rows" -> {False, True, {False}, False}}, 
+           ColumnAlignments -> Left], {None, OutputFormsDump`HeadedColumns}], 
+         
+         Function[BoxForm`e$, 
+          TableForm[
+          BoxForm`e$, 
+           TableHeadings -> {
+            None, {"Fine", "Hyperfine", "Coefficient"}}]]]}, {
+       "35.93472019029053`", 
+        TagBox[
+         TagBox[
+          GridBox[{{
+             TagBox["\"Fine\"", HoldForm], 
+             TagBox["\"Hyperfine\"", HoldForm], 
+             TagBox["\"Coefficient\"", HoldForm]}, {
+             SubscriptBox["\"P\"", 
+              FractionBox["1", "2"]], 
+             
+             TemplateBox[{
+              "\"F=0, \\!\\(\\*SubscriptBox[\\(M\\), \\(F\\)]\\)=0\""}, 
+              "Ket"], "0.4212139744090765`"}, {
+             SubscriptBox["\"P\"", 
+              FractionBox["3", "2"]], 
+             
+             TemplateBox[{
+              "\"F=2, \\!\\(\\*SubscriptBox[\\(M\\), \\(F\\)]\\)=0\""}, 
+              "Ket"], 
+             RowBox[{"-", "0.4959998476597691`"}]}, {
+             SubscriptBox["\"P\"", 
+              FractionBox["3", "2"]], 
+             
+             TemplateBox[{
+              "\"F=2, \\!\\(\\*SubscriptBox[\\(M\\), \\(F\\)]\\)=2\""}, 
+              "Ket"], "0.7593174164234584`"}}, RowSpacings -> 1, 
+           ColumnSpacings -> 3, RowAlignments -> Baseline, ColumnAlignments -> 
+           Left, GridBoxDividers -> {
+            "Columns" -> {{False}}, "Rows" -> {False, True, {False}, False}}, 
+           ColumnAlignments -> Left], {None, OutputFormsDump`HeadedColumns}], 
+         
+         Function[BoxForm`e$, 
+          TableForm[
+          BoxForm`e$, 
+           TableHeadings -> {
+            None, {"Fine", "Hyperfine", "Coefficient"}}]]]}, {
+       "0.0002284173255401705`", 
+        TagBox[
+         TagBox[
+          GridBox[{{
+             TagBox["\"Fine\"", HoldForm], 
+             TagBox["\"Hyperfine\"", HoldForm], 
+             TagBox["\"Coefficient\"", HoldForm]}, {
+             SubscriptBox["\"P\"", 
+              FractionBox["1", "2"]], 
+             
+             TemplateBox[{
+              "\"F=1, \\!\\(\\*SubscriptBox[\\(M\\), \\(F\\)]\\)=0\""}, 
+              "Ket"], "1.`"}}, RowSpacings -> 1, ColumnSpacings -> 3, 
+           RowAlignments -> Baseline, ColumnAlignments -> Left, 
+           GridBoxDividers -> {
+            "Columns" -> {{False}}, "Rows" -> {False, True, {False}, False}}, 
+           ColumnAlignments -> Left], {None, OutputFormsDump`HeadedColumns}], 
+         
+         Function[BoxForm`e$, 
+          TableForm[
+          BoxForm`e$, 
+           TableHeadings -> {
+            None, {"Fine", "Hyperfine", "Coefficient"}}]]]}, {
+       "0.0002284145480267819`", 
+        TagBox[
+         TagBox[
+          GridBox[{{
+             TagBox["\"Fine\"", HoldForm], 
+             TagBox["\"Hyperfine\"", HoldForm], 
+             TagBox["\"Coefficient\"", HoldForm]}, {
+             SubscriptBox["\"P\"", 
+              FractionBox["1", "2"]], 
+             
+             TemplateBox[{
+              "\"F=1, \\!\\(\\*SubscriptBox[\\(M\\), \\(F\\)]\\)=-1\""}, 
+              "Ket"], "0.7070940788609067`"}, {
+             SubscriptBox["\"P\"", 
+              FractionBox["1", "2"]], 
+             
+             TemplateBox[{
+              "\"F=1, \\!\\(\\*SubscriptBox[\\(M\\), \\(F\\)]\\)=1\""}, 
+              "Ket"], 
+             RowBox[{"-", "0.7071194832840104`"}]}}, RowSpacings -> 1, 
+           ColumnSpacings -> 3, RowAlignments -> Baseline, ColumnAlignments -> 
+           Left, GridBoxDividers -> {
+            "Columns" -> {{False}}, "Rows" -> {False, True, {False}, False}}, 
+           ColumnAlignments -> Left], {None, OutputFormsDump`HeadedColumns}], 
+         
+         Function[BoxForm`e$, 
+          TableForm[
+          BoxForm`e$, 
+           TableHeadings -> {None, {"Fine", "Hyperfine", "Coefficient"}}]]]}},
+       RowSpacings -> 1, ColumnSpacings -> 3, RowAlignments -> Center, 
+      ColumnAlignments -> Center, 
+      GridBoxDividers -> {
+       "Columns" -> {{False}}, "Rows" -> {False, True, {False}, False}}, 
+      ColumnAlignments -> Left], {None, OutputFormsDump`HeadedColumns}], 
+    Function[BoxForm`e$, 
+     TableForm[
+     BoxForm`e$, 
+      TableHeadings -> {None, {"Stark Shift (x2\[Pi] kHz)", "Eigenbasis"}}, 
+      TableAlignments -> Center]]], 
+   "\"Laser Wavelengths (nm): 455., 493.408\""},
+  "Labeled",
+  DisplayFunction->(GridBox[{{
+      ItemBox[#2, DefaultBaseStyle -> "LabeledLabel"]}, {
+      TagBox[
+       ItemBox[
+        FrameBox[
+         PaneBox[
+          TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
+          BaselinePosition -> Baseline], FrameMargins -> 4, FrameStyle -> 
+         Automatic], DefaultBaseStyle -> "Labeled"], "SkipImageSizeLevel"]}}, 
+    GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
+    AutoDelete -> False, 
+    GridBoxItemSize -> {"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+    BaselinePosition -> {2, 1}]& ),
+  InterpretationFunction->(RowBox[{"Labeled", "[", 
+     RowBox[{#, ",", #2, ",", "Top", ",", 
+       RowBox[{"{", 
+         RowBox[{"Frame", "\[Rule]", "True"}], "}"}]}], "]"}]& )]], "Output",
+ CellChangeTimes->{
+  3.870228179641778*^9, {3.8702282339204473`*^9, 3.8702282440916147`*^9}, 
+   3.870232354742983*^9, 3.870232388460807*^9, 3.8702377497324667`*^9, {
+   3.8702403473109417`*^9, 3.8702403692688293`*^9}, {3.87024044088984*^9, 
+   3.870240473969419*^9}, {3.870240506558351*^9, 3.870240552185349*^9}, 
+   3.87029115786989*^9, 3.870316161502398*^9, 3.870321618611264*^9},
+ CellLabel->
+  "Out[162]=",ExpressionUUID->"d9bf1e34-de0b-478d-bc61-e1299ad23611"]
+}, Closed]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{Full, Full},
+WindowMargins->{{492, Automatic}, {Automatic, 78}},
+FrontEndVersion->"13.1 for Mac OS X x86 (64-bit) (June 16, 2022)",
+StyleDefinitions->"ReverseColor.nb",
+ExpressionUUID->"3463b3be-fbdd-4d16-81e4-b8e4d67e8eed"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 3917, 56, 125, "Title",ExpressionUUID->"2014527c-294b-4dd5-8253-bfc425f2833e"],
+Cell[CellGroupData[{
+Cell[4522, 82, 201, 4, 69, "Chapter",ExpressionUUID->"2489e3c7-18fd-4711-beae-b0749b936291"],
+Cell[CellGroupData[{
+Cell[4748, 90, 155, 3, 67, "Section",ExpressionUUID->"6b1cd159-0829-4b32-864f-a56c233aa210"],
+Cell[4906, 95, 6491, 156, 382, "Output",ExpressionUUID->"a0301e97-68a4-47f7-9f74-9042f78a8992"],
+Cell[11400, 253, 6827, 161, 382, "Output",ExpressionUUID->"b30419a1-e85b-44b5-94f5-b5947f1e6d04"],
+Cell[18230, 416, 3686, 85, 162, "Output",ExpressionUUID->"a98cf5a5-f5ac-4e20-9943-6c14432aaef4"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[21953, 506, 153, 3, 53, "Section",ExpressionUUID->"d051b1d2-f6af-4b3f-b0cb-e00f49115b71"],
+Cell[22109, 511, 11285, 270, 672, "Output",ExpressionUUID->"d9bf1e34-de0b-478d-bc61-e1299ad23611"]
+}, Closed]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
